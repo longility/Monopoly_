@@ -2,18 +2,18 @@ package game_code;
 
 public class Player {
 
-	int my_Player_Number;
-	Board_Piece current_Position;
+	int myPlayerNumber;
+	Space currentPosition;
 	
-	public Player(int player_Num, Board_Piece start_Piece) {
-		my_Player_Number = player_Num;
-		current_Position = start_Piece;
+	public Player(int playerNum, Space startSpace) {
+		myPlayerNumber = playerNum;
+		currentPosition = startSpace;
 	}
 	
-	public int get_My_Number() {return my_Player_Number;}
+	public int getMyNumber() {return myPlayerNumber;}
 	
 	
-	public Board_Piece get_My_Piece() {return current_Position;}
+	public Space getMySpace() {return currentPosition;}
 	
-	public void move_One_Position() {current_Position = current_Position.get_Next_Piece();}
+	public void moveOnePosition() {currentPosition = currentPosition.getNextSpace();}
 }
