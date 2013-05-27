@@ -10,8 +10,7 @@ public class Player {
 		currentPosition = startSpace;
 	}
 	
-	public int getMyNumber() {return myPlayerNumber;}
-	
+	public int getMyNumber() {return myPlayerNumber;}	
 	
 	public Space getMySpace() {return currentPosition;}
 	
