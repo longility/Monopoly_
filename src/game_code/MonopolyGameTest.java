@@ -46,12 +46,7 @@ public class MonopolyGameTest {
 	}
 	
 	@Test
-	public void testRunTheGame() {
-		testGame.runTheGame();
-	}
-
-	@Test
-	public void testTakeATurn() {
+	public void testTakeATurn() { //
 		int beforePosition = testGame.listOfPlayers.get(0).getMySpace().getSpaceNumber();
 		
 		testGame.takeATurn(testGame.listOfPlayers.get(0));
@@ -59,5 +54,17 @@ public class MonopolyGameTest {
 		
 		assertTrue(beforePosition != afterPosition);
 	}
-
+	
+	@Test
+	public void testRunTheGame() { //If you run two games of 10 turns, they will output different results
+		MonopolyGame gameToTestOne = new MonopolyGame(10,2);
+		MonopolyGame gameToTestTwo = new MonopolyGame(10,2);
+		
+		gameToTestOne.runTheGame();
+		gameToTestTwo.runTheGame();
+		
+		assertTrue(gameToTestOne.listOfPlayers.get(0).getMySpace().getSpaceNumber() != gameToTestTwo.listOfPlayers.get(0).getMySpace().getSpaceNumber() ||
+				gameToTestOne.listOfPlayers.get(1).getMySpace().getSpaceNumber() != gameToTestTwo.listOfPlayers.get(1).getMySpace().getSpaceNumber());
+		
+	}
 }
