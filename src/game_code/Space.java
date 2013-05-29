@@ -3,21 +3,19 @@ package game_code;
 public class Space {
 
 	int spaceNumber;		
-	String characteristic;	//To be used later
-	Space nextSpace;	//The piece ahead
+	Space nextSpace;
 	
 	//Constructor
 	public Space(int space_num) {
 		spaceNumber = space_num;
-		characteristic = "NULL for now";
 	}
 	
 	public void setNextSpace(Space next) {
 		nextSpace = next;
 	}
 	
-	public int getSpaceNumber() {return spaceNumber;}		//Where am I?
+	public int getSpaceNumber() {return spaceNumber;}
 		
-	public Space getNextSpace() {return nextSpace;}	//What is next?
+	public Space getNextSpace() {return nextSpace;}
 	
 }

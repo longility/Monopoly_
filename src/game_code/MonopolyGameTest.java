@@ -2,10 +2,7 @@ package game_code;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class MonopolyGameTest {
@@ -40,6 +37,7 @@ public class MonopolyGameTest {
 		for(int i = 0; i<50; i++) {
 			if(testSpace.getSpaceNumber() == 39) {
 				assertTrue(testSpace.getNextSpace().getSpaceNumber() == 0);
+				assertEquals(testGame.initialSpace, testSpace.getNextSpace());		
 			}
 			testSpace = testSpace.getNextSpace();
 		}
@@ -64,7 +62,7 @@ public class MonopolyGameTest {
 		gameToTestTwo.runTheGame();
 		
 		assertTrue(gameToTestOne.listOfPlayers.get(0).getMySpace().getSpaceNumber() != gameToTestTwo.listOfPlayers.get(0).getMySpace().getSpaceNumber() ||
-				gameToTestOne.listOfPlayers.get(1).getMySpace().getSpaceNumber() != gameToTestTwo.listOfPlayers.get(1).getMySpace().getSpaceNumber());
+				   gameToTestOne.listOfPlayers.get(1).getMySpace().getSpaceNumber() != gameToTestTwo.listOfPlayers.get(1).getMySpace().getSpaceNumber());
 		
 	}
 }
