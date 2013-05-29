@@ -29,15 +29,13 @@ public class MonopolyGame {
 		}		
 	}
 	
-	public void runTheGame() {				
-		
+	public void runTheGame() {		
 		for(int i=1; i<=numberOfTurns; i++) {
 			System.out.println("-------------- Turn " + i + "--------------");
 			for(int j=0; j<listOfPlayers.size(); j++) {
 				takeATurn(listOfPlayers.get(j));
 			}
-		}
-		
+		}		
 	}
 	
 	public void takeATurn(Player player) {
