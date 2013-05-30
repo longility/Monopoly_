@@ -51,13 +51,13 @@ public class MonopolyGameTest {
 	@Test
 	public void testMonopolyGamePlayerStartSpace() { //Each players starts on space 0
 		for(int i = 0; i<testGame.listOfPlayers.size(); i++) {
-			assertTrue(testGame.listOfPlayers.get(i).getMySpace().getSpaceNumber() == 0);
+			assertTrue(testGame.listOfPlayers.get(i).currentPosition.getSpaceNumber() == 0);
 		}		
 	}
 	
 	@Test
 	public void testMonopolyGameBoardSize() { 
-		Space testSpace = testGame.listOfPlayers.get(0).getMySpace(); 
+		Space testSpace = testGame.listOfPlayers.get(0).currentPosition; 
 		for(int i = 0; i<50; i++) {
 			if(testSpace.getSpaceNumber() == 39) {
 				assertTrue(testSpace.getNextSpace().getSpaceNumber() == 0);
@@ -69,10 +69,10 @@ public class MonopolyGameTest {
 
 	@Test
 	public void testTakeATurn() { 
-		int beforePosition = testGame.listOfPlayers.get(0).getMySpace().getSpaceNumber();
+		int beforePosition = testGame.listOfPlayers.get(0).currentPosition.getSpaceNumber();
 		
 		testGame.listOfPlayers.get(0).takeATurn();
-		int afterPosition = testGame.listOfPlayers.get(0).getMySpace().getSpaceNumber();
+		int afterPosition = testGame.listOfPlayers.get(0).currentPosition.getSpaceNumber();
 		
 		assertTrue(beforePosition != afterPosition);
 	}
@@ -85,8 +85,8 @@ public class MonopolyGameTest {
 		gameToTestOne.runTheGame();
 		gameToTestTwo.runTheGame();
 		
-		assertTrue(gameToTestOne.listOfPlayers.get(0).getMySpace().getSpaceNumber() != gameToTestTwo.listOfPlayers.get(0).getMySpace().getSpaceNumber() ||
-				   gameToTestOne.listOfPlayers.get(1).getMySpace().getSpaceNumber() != gameToTestTwo.listOfPlayers.get(1).getMySpace().getSpaceNumber());
+		assertTrue(gameToTestOne.listOfPlayers.get(0).currentPosition.getSpaceNumber() != gameToTestTwo.listOfPlayers.get(0).currentPosition.getSpaceNumber() ||
+				   gameToTestOne.listOfPlayers.get(1).currentPosition.getSpaceNumber() != gameToTestTwo.listOfPlayers.get(1).currentPosition.getSpaceNumber());
 		
 	}
 }

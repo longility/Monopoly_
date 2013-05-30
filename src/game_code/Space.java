@@ -1,7 +1,7 @@
 package game_code;
 
 public class Space {
-
+	
 	int spaceNumber;		
 	Space nextSpace;
 	

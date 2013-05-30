@@ -15,5 +15,5 @@ public class Board {
 		currentSpace.setNextSpace(initialSpace);
 	}
 	
-	public Space getInitialSpace() { return initialSpace; }
+	public Space getInitialSpace() { return initialSpace;}
 }

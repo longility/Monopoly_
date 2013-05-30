@@ -2,21 +2,24 @@ package game_code;
 import java.util.Vector;
 
 public class MonopolyGame {
+	
 	Vector<Player> listOfPlayers;
 	int numberOfTurns;
-	int numberOfPlayers;
 	Board gameBoard;
 	
 	public MonopolyGame(int numberOfTurns, int numberOfPlayers) {
 		this.numberOfTurns = 	numberOfTurns;
-		this.numberOfPlayers = 	numberOfPlayers;
-		listOfPlayers = 	new Vector<Player>(numberOfPlayers);
 		
 		gameBoard = new Board();
+		createPlayers(numberOfPlayers);			
+	}
+	
+	public void createPlayers(int numberOfPlayers) {
+		listOfPlayers = 	new Vector<Player>(numberOfPlayers);
 		
 		for(int i=0; i<numberOfPlayers; i++) {
 			listOfPlayers.add(i, new Player(i+1,gameBoard.getInitialSpace()));
-		}	
+		}
 	}
 	
 	public void runTheGame() {		
