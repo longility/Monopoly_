@@ -17,7 +17,15 @@ public class MonopolyGame {
 		
 		for(int i=0; i<numberOfPlayers; i++) {
 			listOfPlayers.add(i, new Player(i+1,initialSpace));
-		}		
+		}	
+		
+		givePlayersInitialMoney();
+	}
+	
+	public void givePlayersInitialMoney() {
+		for(int i=0; i<numberOfPlayers; i++) {
+			listOfPlayers.get(i).giveToMyMoney(1500);
+		}
 	}
 	
 	public void createTheBoard() {
@@ -37,7 +45,7 @@ public class MonopolyGame {
 			for(int j=0; j<listOfPlayers.size(); j++) {
 				takeATurn(listOfPlayers.get(j));
 			}
-		}		
+		}	
 	}
 	
 	public void takeATurn(Player player) {
@@ -48,7 +56,8 @@ public class MonopolyGame {
 		for(int i=0; i<sumOfTwoRolls; i++) {
 			player.moveOnePosition();
 		}		
-	} 
+		
+	}
 	
 	public int rollADie(int playerNum) {
 		Random generator = new Random(System.nanoTime()%(playerNum*10));
