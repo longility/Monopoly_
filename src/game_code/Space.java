@@ -5,13 +5,9 @@ public class Space {
 	int spaceNumber;		
 	Space nextSpace;
 	
-	public Space(int space_num) {
-		spaceNumber = space_num;
-	}
+	public Space(int space_num) {spaceNumber = space_num;}
 	
-	public void setNextSpace(Space next) {
-		nextSpace = next;
-	}
+	public void setNextSpace(Space next) { nextSpace = next;}
 	
 	public int getSpaceNumber() {return spaceNumber;}
 		

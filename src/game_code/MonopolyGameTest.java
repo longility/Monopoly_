@@ -61,7 +61,7 @@ public class MonopolyGameTest {
 		for(int i = 0; i<50; i++) {
 			if(testSpace.getSpaceNumber() == 39) {
 				assertTrue(testSpace.getNextSpace().getSpaceNumber() == 0);
-				assertEquals(testGame.initialSpace, testSpace.getNextSpace());		
+				assertEquals(testGame.gameBoard.getInitialSpace(), testSpace.getNextSpace());		
 			}
 			testSpace = testSpace.getNextSpace();
 		}
@@ -71,7 +71,7 @@ public class MonopolyGameTest {
 	public void testTakeATurn() { 
 		int beforePosition = testGame.listOfPlayers.get(0).getMySpace().getSpaceNumber();
 		
-		testGame.takeATurn(testGame.listOfPlayers.get(0));
+		testGame.listOfPlayers.get(0).takeATurn();
 		int afterPosition = testGame.listOfPlayers.get(0).getMySpace().getSpaceNumber();
 		
 		assertTrue(beforePosition != afterPosition);
