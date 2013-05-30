@@ -3,7 +3,7 @@ package game_code;
 import java.util.Random;
 
 public class Player {
-	static Random randomGenerator = new Random(System.nanoTime()%(5*10));
+	static Random randomGenerator = new Random(System.nanoTime());
 	
 	Space currentPosition;
 	int myMoney;

@@ -8,14 +8,14 @@ public class MonopolyGame {
 	Board gameBoard;
 	
 	public MonopolyGame(int numberOfTurns, int numberOfPlayers) {
-		this.numberOfTurns = 	numberOfTurns;
+		this.numberOfTurns = numberOfTurns;
 		
 		gameBoard = new Board();
 		createPlayers(numberOfPlayers);			
 	}
 	
 	public void createPlayers(int numberOfPlayers) {
-		listOfPlayers = 	new Vector<Player>(numberOfPlayers);
+		listOfPlayers = new Vector<Player>(numberOfPlayers);
 		
 		for(int i=0; i<numberOfPlayers; i++) {
 			listOfPlayers.add(i, new Player(i+1,gameBoard.getInitialSpace()));
