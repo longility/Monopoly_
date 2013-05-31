@@ -13,9 +13,7 @@ public class Player {
 		myMoney = 1500;
 	}
 
-	public void giveToMyMoney(int value) {myMoney += value;}
-	
-	public void takeFromMyMoney(int value) {myMoney -= value;}
+	public void changeMyMoney(int value) {myMoney += value;}
 	
 	public int getMyMoney() {return myMoney;}	
 		
@@ -27,6 +25,14 @@ public class Player {
 		for(int i=0; i<sumOfTwoRolls; i++) {
 			this.moveOnePosition();
 		}	
+		
+		this.preformSpaceAction();
+	}
+	
+	public void preformSpaceAction() {
+		int returnFromSpaceAction = currentPosition.spaceAction();
+		
+		this.changeMyMoney(returnFromSpaceAction);
 	}
 	
 	public void moveOnePosition() {currentPosition = currentPosition.getNextSpace();}

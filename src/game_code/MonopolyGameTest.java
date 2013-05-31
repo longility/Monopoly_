@@ -34,7 +34,7 @@ public class MonopolyGameTest {
 	public void testMonopolyGamePlayerRemoveMoney() { 
 		Player player = testGame.listOfPlayers.get(0);
 		
-		player.takeFromMyMoney(500);
+		player.changeMyMoney(-500);
 		
 		assertEquals(player.getMyMoney(), 1000);	
 	}
@@ -43,7 +43,7 @@ public class MonopolyGameTest {
 	public void testMonopolyGamePlayerAddMoney() { 
 		Player player = testGame.listOfPlayers.get(0);
 		
-		player.giveToMyMoney(500);
+		player.changeMyMoney(500);
 		
 		assertEquals(player.getMyMoney(), 2000);	
 	}
@@ -65,6 +65,28 @@ public class MonopolyGameTest {
 			}
 			testSpace = testSpace.getNextSpace();
 		}
+	}
+	
+	@Test
+	public void testMonopolyGameLuxuryTaxSpace() { 
+		LuxuryTaxSpace testSpace = new LuxuryTaxSpace(0); 
+
+		int numberToTake = testSpace.spaceAction();
+		
+		assertEquals(numberToTake, -75);
+	}
+	
+	@Test
+	public void testMonopolyGameLuxuryTaxSpaceInBoard() { 
+		Space testSpace = testGame.listOfPlayers.get(0).currentPosition;
+		int returnFromSpaceAction = 0;
+		
+		for(int i=0; i<40; i++) {
+			if (testSpace.getSpaceNumber() == 20) returnFromSpaceAction = testSpace.spaceAction();
+			testSpace = testSpace.getNextSpace();
+		}
+		
+		assertEquals(returnFromSpaceAction, -75);
 	}
 
 	@Test
@@ -88,5 +110,18 @@ public class MonopolyGameTest {
 		assertTrue(gameToTestOne.listOfPlayers.get(0).currentPosition.getSpaceNumber() != gameToTestTwo.listOfPlayers.get(0).currentPosition.getSpaceNumber() ||
 				   gameToTestOne.listOfPlayers.get(1).currentPosition.getSpaceNumber() != gameToTestTwo.listOfPlayers.get(1).currentPosition.getSpaceNumber());
 		
+	}
+	
+	@Test
+	public void testLuxuryTaxRemoveFromPlayersMoney() { 
+		Space startSpace = new Space(19);
+		LuxuryTaxSpace testSpace = new LuxuryTaxSpace(20);
+		startSpace.setNextSpace(testSpace);
+		Player testPlayer = new Player(1, startSpace);
+		
+		testPlayer.moveOnePosition();
+		testPlayer.preformSpaceAction();
+		
+		assertEquals(testPlayer.getMyMoney(), 1425);		
 	}
 }

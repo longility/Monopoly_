@@ -8,7 +8,8 @@ public class Board {
 		Space currentSpace = initialSpace; 
 		Space nextSpace;
 		for(int i=1; i<40; i++) { 
-			nextSpace = new Space(i);
+			if (i == 20) nextSpace = new LuxuryTaxSpace(i);
+			else nextSpace = new Space(i);
 			currentSpace.setNextSpace(nextSpace);
 			currentSpace = nextSpace;
 		}
