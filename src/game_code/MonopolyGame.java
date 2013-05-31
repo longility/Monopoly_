@@ -29,4 +29,10 @@ public class MonopolyGame {
 			}
 		}	
 	}
+	
+	public Vector<Player> getListOfPlayers() {return listOfPlayers;}
+	
+	public int getNumberOfTurns() {return numberOfTurns;}
+	
+	public Board getGameBoard() {return gameBoard;}
 }

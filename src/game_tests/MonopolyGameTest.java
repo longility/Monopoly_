@@ -1,38 +1,43 @@
-package game_code;
+package game_tests;
+
 
 import static org.junit.Assert.*;
+
+import java.util.Vector;
+import game_code.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
 public class MonopolyGameTest {
 	MonopolyGame testGame;
-
+	Vector<Player> listOfPlayers;
 	@Before
 	public void setUp() throws Exception {
 		testGame = new MonopolyGame(5,2);
+		listOfPlayers = testGame.getListOfPlayers();
 	}
 
 	@Test
 	public void testMonopolyGamePlayerNumber() {
-		assertTrue(testGame.listOfPlayers.size() == 2);
+		assertTrue(listOfPlayers.size() == 2);
 	}
 	
 	@Test
 	public void testMonopolyGameTurnNumber() {
-		assertTrue(testGame.numberOfTurns == 5);
+		assertTrue(testGame.getNumberOfTurns() == 5);
 	}
 	
 	@Test
 	public void testMonopolyGamePlayerInitialMoney() { 
-		for(int i = 0; i<testGame.listOfPlayers.size(); i++) {
-			assertEquals(testGame.listOfPlayers.get(i).getMyMoney(),1500);
+		for(int i = 0; i<listOfPlayers.size(); i++) {
+			assertEquals(listOfPlayers.get(i).getMyMoney(),1500);
 		}
 	}
 	
 	@Test
 	public void testMonopolyGamePlayerRemoveMoney() { 
-		Player player = testGame.listOfPlayers.get(0);
+		Player player = listOfPlayers.get(0);
 		
 		player.changeMyMoney(-500);
 		
@@ -41,7 +46,7 @@ public class MonopolyGameTest {
 	
 	@Test
 	public void testMonopolyGamePlayerAddMoney() { 
-		Player player = testGame.listOfPlayers.get(0);
+		Player player = listOfPlayers.get(0);
 		
 		player.changeMyMoney(500);
 		
@@ -50,18 +55,18 @@ public class MonopolyGameTest {
 
 	@Test
 	public void testMonopolyGamePlayerStartSpace() { //Each players starts on space 0
-		for(int i = 0; i<testGame.listOfPlayers.size(); i++) {
-			assertTrue(testGame.listOfPlayers.get(i).currentPosition.getSpaceNumber() == 0);
+		for(int i = 0; i<listOfPlayers.size(); i++) {
+			assertTrue(listOfPlayers.get(i).getCurrentPosition().getSpaceNumber() == 0);
 		}		
 	}
 	
 	@Test
 	public void testMonopolyGameBoardSize() { 
-		Space testSpace = testGame.listOfPlayers.get(0).currentPosition; 
+		Space testSpace = listOfPlayers.get(0).getCurrentPosition(); 
 		for(int i = 0; i<50; i++) {
 			if(testSpace.getSpaceNumber() == 39) {
 				assertTrue(testSpace.getNextSpace().getSpaceNumber() == 0);
-				assertEquals(testGame.gameBoard.getInitialSpace(), testSpace.getNextSpace());		
+				assertEquals(testGame.getGameBoard().getInitialSpace(), testSpace.getNextSpace());		
 			}
 			testSpace = testSpace.getNextSpace();
 		}
@@ -71,29 +76,29 @@ public class MonopolyGameTest {
 	public void testMonopolyGameLuxuryTaxSpace() { 
 		LuxuryTaxSpace testSpace = new LuxuryTaxSpace(0); 
 
-		testSpace.interactWithPlayer(testGame.listOfPlayers.get(0));
+		testSpace.interactWithPlayer(listOfPlayers.get(0));
 		
-		assertEquals(testGame.listOfPlayers.get(0).getMyMoney(), 1425);
+		assertEquals(listOfPlayers.get(0).getMyMoney(), 1425);
 	}
 	
 	@Test
 	public void testMonopolyGameLuxuryTaxSpaceInBoard() { 
-		Space testSpace = testGame.listOfPlayers.get(0).currentPosition;
+		Space testSpace = listOfPlayers.get(0).getCurrentPosition();
 		
 		for(int i=0; i<40; i++) {
-			if (testSpace.getSpaceNumber() == 20) testSpace.interactWithPlayer(testGame.listOfPlayers.get(0));
+			if (testSpace.getSpaceNumber() == 20) testSpace.interactWithPlayer(listOfPlayers.get(0));
 			testSpace = testSpace.getNextSpace();
 		}
 		
-		assertEquals(testGame.listOfPlayers.get(0).getMyMoney(), 1425);
+		assertEquals(listOfPlayers.get(0).getMyMoney(), 1425);
 	}
 
 	@Test
 	public void testTakeATurn() { 
-		int beforePosition = testGame.listOfPlayers.get(0).currentPosition.getSpaceNumber();
+		int beforePosition = listOfPlayers.get(0).getCurrentPosition().getSpaceNumber();
 		
-		testGame.listOfPlayers.get(0).takeATurn();
-		int afterPosition = testGame.listOfPlayers.get(0).currentPosition.getSpaceNumber();
+		listOfPlayers.get(0).takeATurn();
+		int afterPosition = listOfPlayers.get(0).getCurrentPosition().getSpaceNumber();
 		
 		assertTrue(beforePosition != afterPosition);
 	}
@@ -106,8 +111,8 @@ public class MonopolyGameTest {
 		gameToTestOne.runTheGame();
 		gameToTestTwo.runTheGame();
 		
-		assertTrue(gameToTestOne.listOfPlayers.get(0).currentPosition.getSpaceNumber() != gameToTestTwo.listOfPlayers.get(0).currentPosition.getSpaceNumber() ||
-				   gameToTestOne.listOfPlayers.get(1).currentPosition.getSpaceNumber() != gameToTestTwo.listOfPlayers.get(1).currentPosition.getSpaceNumber());
+		assertTrue(gameToTestOne.getListOfPlayers().get(0).getCurrentPosition().getSpaceNumber() != gameToTestTwo.getListOfPlayers().get(0).getCurrentPosition().getSpaceNumber() ||
+				   gameToTestOne.getListOfPlayers().get(1).getCurrentPosition().getSpaceNumber() != gameToTestTwo.getListOfPlayers().get(1).getCurrentPosition().getSpaceNumber());
 		
 	}
 	

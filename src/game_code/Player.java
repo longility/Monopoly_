@@ -40,4 +40,6 @@ public class Player {
 		randomRoll += 1;
 		return randomRoll;
 	}
+	
+	public Space getCurrentPosition() {return currentPosition;}
 }
