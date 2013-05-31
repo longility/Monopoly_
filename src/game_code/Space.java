@@ -12,6 +12,6 @@ public class Space {
 	public int getSpaceNumber() {return spaceNumber;}
 		
 	public Space getNextSpace() {return nextSpace;}	
-	
-	public int spaceAction() {return 0;}
+	 
+	public void interactWithPlayer(Player player) {player.changeMyMoney(0);}
 }

@@ -7,5 +7,5 @@ public class LuxuryTaxSpace extends Space {
 	}
 	
 	@Override
-	public int spaceAction() { return -75;}	
+	public void interactWithPlayer(Player player) {player.changeMyMoney(-75);}
 }

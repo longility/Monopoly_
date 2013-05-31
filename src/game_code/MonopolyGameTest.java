@@ -71,22 +71,21 @@ public class MonopolyGameTest {
 	public void testMonopolyGameLuxuryTaxSpace() { 
 		LuxuryTaxSpace testSpace = new LuxuryTaxSpace(0); 
 
-		int numberToTake = testSpace.spaceAction();
+		testSpace.interactWithPlayer(testGame.listOfPlayers.get(0));
 		
-		assertEquals(numberToTake, -75);
+		assertEquals(testGame.listOfPlayers.get(0).getMyMoney(), 1425);
 	}
 	
 	@Test
 	public void testMonopolyGameLuxuryTaxSpaceInBoard() { 
 		Space testSpace = testGame.listOfPlayers.get(0).currentPosition;
-		int returnFromSpaceAction = 0;
 		
 		for(int i=0; i<40; i++) {
-			if (testSpace.getSpaceNumber() == 20) returnFromSpaceAction = testSpace.spaceAction();
+			if (testSpace.getSpaceNumber() == 20) testSpace.interactWithPlayer(testGame.listOfPlayers.get(0));
 			testSpace = testSpace.getNextSpace();
 		}
 		
-		assertEquals(returnFromSpaceAction, -75);
+		assertEquals(testGame.listOfPlayers.get(0).getMyMoney(), 1425);
 	}
 
 	@Test

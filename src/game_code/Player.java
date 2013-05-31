@@ -30,9 +30,7 @@ public class Player {
 	}
 	
 	public void preformSpaceAction() {
-		int returnFromSpaceAction = currentPosition.spaceAction();
-		
-		this.changeMyMoney(returnFromSpaceAction);
+		currentPosition.interactWithPlayer(this);
 	}
 	
 	public void moveOnePosition() {currentPosition = currentPosition.getNextSpace();}
