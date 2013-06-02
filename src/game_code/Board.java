@@ -1,11 +1,11 @@
 package game_code;
 
 public class Board {
-	Space initialSpace;
+	Space startSpace;
 	
 	public Board() {
-		initialSpace = new Space(0);
-		Space currentSpace = initialSpace; 
+		startSpace = new Space(0);
+		Space currentSpace = startSpace; 
 		Space nextSpace;
 		for(int i=1; i<40; i++) { 
 			if (i == 20) nextSpace = new LuxuryTaxSpace(i);
@@ -13,8 +13,8 @@ public class Board {
 			currentSpace.setNextSpace(nextSpace);
 			currentSpace = nextSpace;
 		}
-		currentSpace.setNextSpace(initialSpace);
+		currentSpace.setNextSpace(startSpace);
 	}
 	
-	public Space getInitialSpace() { return initialSpace;}
+	public Space getInitialSpace() { return startSpace;}
 }

@@ -5,9 +5,9 @@ public class Space {
 	int spaceNumber;		
 	Space nextSpace;
 	
-	public Space(int space_num) {spaceNumber = space_num;}
+	public Space(int spaceNumber) {this.spaceNumber = spaceNumber;}
 	
-	public void setNextSpace(Space next) { nextSpace = next;}
+	public void setNextSpace(Space nextSpace) {this.nextSpace = nextSpace;}
 	
 	public int getSpaceNumber() {return spaceNumber;}
 		

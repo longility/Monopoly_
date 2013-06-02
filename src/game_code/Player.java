@@ -8,12 +8,12 @@ public class Player {
 	Space currentPosition;
 	int myMoney;
 	
-	public Player(int playerNum, Space startSpace) {
-		currentPosition = startSpace;
+	public Player(int playerNum, Space currentPosition) {
+		this.currentPosition = currentPosition;
 		myMoney = 1500;
 	}
 
-	public void changeMyMoney(int value) {myMoney += value;}
+	public void changeMyMoney(int amountToChange) {myMoney += amountToChange;}
 	
 	public int getMyMoney() {return myMoney;}	
 		

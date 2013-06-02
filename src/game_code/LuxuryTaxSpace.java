@@ -2,8 +2,8 @@ package game_code;
 
 public class LuxuryTaxSpace extends Space {
 
-	public LuxuryTaxSpace(int space_num) {
-		super(space_num);
+	public LuxuryTaxSpace(int spaceNumber) {
+		super(spaceNumber);
 	}
 	
 	@Override
