@@ -4,7 +4,7 @@ public class Board {
 	Space startSpace;
 	
 	public Board() {
-		startSpace = new Space(0);
+		startSpace = new GoSpace(0);
 		Space currentSpace = startSpace; 
 		Space nextSpace;
 		for(int i=1; i<40; i++) { 
@@ -16,5 +16,5 @@ public class Board {
 		currentSpace.setNextSpace(startSpace);
 	}
 	
-	public Space getInitialSpace() { return startSpace;}
+	public Space getInitialSpace() {return startSpace;}
 }

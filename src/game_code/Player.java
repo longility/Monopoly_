@@ -18,28 +18,21 @@ public class Player {
 	public int getMyMoney() {return myMoney;}	
 		
 	public void takeATurn() {
-		int sumOfTwoRolls;
-		
-		sumOfTwoRolls = rollADie() + rollADie();
+		int sumOfTwoRolls = rollADie() + rollADie();
 
 		for(int i=0; i<sumOfTwoRolls; i++) {
 			this.moveOnePosition();
+			if(this.getCurrentPosition() instanceof GoSpace && i<sumOfTwoRolls-1) this.preformSpaceAction();
 		}	
 		
 		this.preformSpaceAction();
 	}
 	
-	public void preformSpaceAction() {
-		currentPosition.interactWithPlayer(this);
-	}
+	public void preformSpaceAction() {currentPosition.interactWithPlayer(this);}
 	
 	public void moveOnePosition() {currentPosition = currentPosition.getNextSpace();}
 	
-	public int rollADie() {
-		int randomRoll = randomGenerator.nextInt(6);
-		randomRoll += 1;
-		return randomRoll;
-	}
+	public int rollADie() {return (randomGenerator.nextInt(6) + 1);}
 	
 	public Space getCurrentPosition() {return currentPosition;}
 }

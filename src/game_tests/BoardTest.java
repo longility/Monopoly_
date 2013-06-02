@@ -26,5 +26,25 @@ public class BoardTest {
 			testSpace = testSpace.getNextSpace();
 		}
 	}
+	
+	@Test
+	public void testMonopolyGameBoardHasGoSpace() {
+		Space testSpace = testGame.getGameBoard().getInitialSpace();
+		
+		assertTrue(testSpace instanceof game_code.GoSpace);
+	}
+	
+	@Test
+	public void testMonopolyGameBoardHasLuxuryTaxSpace() {
+		Space testSpace = testGame.getGameBoard().getInitialSpace();
+		boolean findLuxuryTaxSpace = false;
+		
+		for(int i=1; i<50; i++) {
+			if (testSpace instanceof game_code.LuxuryTaxSpace) findLuxuryTaxSpace = true;
+			testSpace = testSpace.getNextSpace();
+		}
+		
+		assertTrue(findLuxuryTaxSpace);
+	}
 
 }

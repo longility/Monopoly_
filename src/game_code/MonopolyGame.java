@@ -8,8 +8,7 @@ public class MonopolyGame {
 	Board gameBoard;
 	
 	public MonopolyGame(int numberOfTurns, int numberOfPlayers) {
-		this.numberOfTurns = numberOfTurns;
-		
+		this.numberOfTurns = numberOfTurns;		
 		gameBoard = new Board();
 		createPlayers(numberOfPlayers);			
 	}
