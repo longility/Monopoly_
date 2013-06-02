@@ -13,5 +13,7 @@ public class Space {
 		
 	public Space getNextSpace() {return nextSpace;}	
 	 
-	public void interactWithPlayer(Player player) {player.changeMyMoney(0);}
+	public void interactWithLandAction(Player player) {player.changeMyMoney(0);}
+	
+	public void interactWithPassAction(Player player) {player.changeMyMoney(0);}
 }

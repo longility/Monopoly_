@@ -6,5 +6,7 @@ public class GoSpace extends Space{
 	}
 	
 	@Override
-	public void interactWithPlayer(Player player) {player.changeMyMoney(200);}
+	public void interactWithLandAction(Player player) {player.changeMyMoney(200);}
+	
+	public void interactWithPassAction(Player player) {player.changeMyMoney(200);}
 }

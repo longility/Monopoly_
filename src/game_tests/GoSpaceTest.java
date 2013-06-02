@@ -29,7 +29,7 @@ public class GoSpaceTest {
 		for (int i=0; i<39; i++) testPlayer.moveOnePosition();
 
 		testPlayer.moveOnePosition();
-		testPlayer.preformSpaceAction();
+		testPlayer.preformLandAction();
 		
 		assertEquals(testPlayer.getMyMoney(), 1700);		
 	}

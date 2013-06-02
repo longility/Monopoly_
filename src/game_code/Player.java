@@ -22,13 +22,15 @@ public class Player {
 
 		for(int i=0; i<sumOfTwoRolls; i++) {
 			this.moveOnePosition();
-			if(this.getCurrentPosition() instanceof GoSpace && i<sumOfTwoRolls-1) this.preformSpaceAction();
+			if (i != sumOfTwoRolls-1) this.preformPassAction();
 		}	
 		
-		this.preformSpaceAction();
+		this.preformLandAction();
 	}
 	
-	public void preformSpaceAction() {currentPosition.interactWithPlayer(this);}
+	public void preformLandAction() {currentPosition.interactWithLandAction(this);}
+	
+	public void preformPassAction() {currentPosition.interactWithPassAction(this);}
 	
 	public void moveOnePosition() {currentPosition = currentPosition.getNextSpace();}
 	
