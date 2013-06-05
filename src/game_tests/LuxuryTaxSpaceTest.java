@@ -17,11 +17,11 @@ public class LuxuryTaxSpaceTest {
 	
 	@Test
 	public void testMonopolyGameLuxuryTaxSpace() { 
-		LuxuryTaxSpace testSpace = new LuxuryTaxSpace(0); 
+		LuxuryTaxSpace testSpace = new LuxuryTaxSpace(); 
 
 		testSpace.interactWithLandAction(listOfPlayers.get(0));
 		
-		assertEquals(listOfPlayers.get(0).getMyMoney(), 1425);
+		assertEquals(1425, listOfPlayers.get(0).getMyMoney());
 	}
 	
 	@Test
@@ -29,23 +29,23 @@ public class LuxuryTaxSpaceTest {
 		Space testSpace = listOfPlayers.get(0).getCurrentPosition();
 		
 		for(int i=0; i<40; i++) {
-			if (testSpace.getSpaceNumber() == 20) testSpace.interactWithLandAction(listOfPlayers.get(0));
+			if (i == 20) testSpace.interactWithLandAction(listOfPlayers.get(0));
 			testSpace = testSpace.getNextSpace();
 		}
 		
-		assertEquals(listOfPlayers.get(0).getMyMoney(), 1425);
+		assertEquals(1425, listOfPlayers.get(0).getMyMoney());
 	}
 	
 	@Test
 	public void testLuxuryTaxRemoveFromPlayersMoney() { 
-		Space startSpace = new Space(19);
-		LuxuryTaxSpace testSpace = new LuxuryTaxSpace(20);
+		Space startSpace = new Space();
+		LuxuryTaxSpace testSpace = new LuxuryTaxSpace();
 		startSpace.setNextSpace(testSpace);
 		Player testPlayer = new Player(1, startSpace);
 		
 		testPlayer.moveOnePosition();
 		testPlayer.preformLandAction();
 		
-		assertEquals(testPlayer.getMyMoney(), 1425);		
+		assertEquals(1425, testPlayer.getMyMoney());		
 	}
 }

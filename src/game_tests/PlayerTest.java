@@ -17,13 +17,13 @@ public class PlayerTest {
 	
 	@Test
 	public void testMonopolyGamePlayerNumber() {
-		assertTrue(listOfPlayers.size() == 2);
+		assertEquals(2, listOfPlayers.size());
 	}
 	
 	@Test
 	public void testMonopolyGamePlayerInitialMoney() { 
 		for(int i = 0; i<listOfPlayers.size(); i++) {
-			assertEquals(listOfPlayers.get(i).getMyMoney(),1500);
+			assertEquals(1500, listOfPlayers.get(i).getMyMoney());
 		}
 	}
 	
@@ -33,7 +33,7 @@ public class PlayerTest {
 		
 		player.changeMyMoney(-500);
 		
-		assertEquals(player.getMyMoney(), 1000);	
+		assertEquals(1000, player.getMyMoney());	
 	}
 	
 	@Test
@@ -42,13 +42,13 @@ public class PlayerTest {
 		
 		player.changeMyMoney(500);
 		
-		assertEquals(player.getMyMoney(), 2000);	
+		assertEquals(2000, player.getMyMoney());	
 	}
 
 	@Test
 	public void testMonopolyGamePlayerStartSpace() { //Each players starts on space 0
 		for(int i = 0; i<listOfPlayers.size(); i++) {
-			assertTrue(listOfPlayers.get(i).getCurrentPosition().getSpaceNumber() == 0);
+			assertEquals(listOfPlayers.get(i).getCurrentPosition(), testGame.getGameBoard().getInitialSpace());
 		}		
 	}
 

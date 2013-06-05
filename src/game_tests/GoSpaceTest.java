@@ -1,23 +1,21 @@
 package game_tests;
 
 import static org.junit.Assert.*;
-import java.util.Vector;
 import game_code.*;
 import org.junit.Before;
 import org.junit.Test;
 
 public class GoSpaceTest {
 	MonopolyGame testGame;
-	Vector<Player> listOfPlayers;
+	
 	@Before
 	public void setUp() throws Exception {
 		testGame = new MonopolyGame(5,2);
-		listOfPlayers = testGame.getListOfPlayers();
 	}
 	
 	@Test
 	public void testMonopolyGamePlayersStartOnGoSpace() { 
-		Space testSpace = listOfPlayers.get(0).getCurrentPosition();
+		Space testSpace = testGame.getListOfPlayers().get(0).getCurrentPosition();
 		
 		assertTrue(testSpace instanceof GoSpace);
 	}
@@ -31,7 +29,7 @@ public class GoSpaceTest {
 		testPlayer.moveOnePosition();
 		testPlayer.preformLandAction();
 		
-		assertEquals(testPlayer.getMyMoney(), 1700);		
+		assertEquals(1700, testPlayer.getMyMoney());		
 	}
 	
 	@Test
@@ -42,6 +40,6 @@ public class GoSpaceTest {
 
 		testPlayer.takeATurn();
 		
-		assertEquals(testPlayer.getMyMoney(), 1700);		
+		assertEquals(1700, testPlayer.getMyMoney());		
 	}
 }

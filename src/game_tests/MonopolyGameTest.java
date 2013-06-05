@@ -3,6 +3,7 @@ package game_tests;
 import static org.junit.Assert.*;
 import java.util.Vector;
 import game_code.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,17 +19,17 @@ public class MonopolyGameTest {
 	
 	@Test
 	public void testMonopolyGameTurnNumber() {
-		assertTrue(testGame.getNumberOfTurns() == 5);
+		assertEquals(5, testGame.getNumberOfTurns());
 	}
 
 	@Test
 	public void testTakeATurn() { 
-		int beforePosition = listOfPlayers.get(0).getCurrentPosition().getSpaceNumber();
+		Space beforePosition = listOfPlayers.get(0).getCurrentPosition();
 		
 		listOfPlayers.get(0).takeATurn();
-		int afterPosition = listOfPlayers.get(0).getCurrentPosition().getSpaceNumber();
+		Space afterPosition = listOfPlayers.get(0).getCurrentPosition();
 		
-		assertTrue(beforePosition != afterPosition);
+		assertNotSame(afterPosition, beforePosition);
 	}
 	
 	@Test
@@ -39,8 +40,8 @@ public class MonopolyGameTest {
 		gameToTestOne.runTheGame();
 		gameToTestTwo.runTheGame();
 		
-		assertTrue(gameToTestOne.getListOfPlayers().get(0).getCurrentPosition().getSpaceNumber() != gameToTestTwo.getListOfPlayers().get(0).getCurrentPosition().getSpaceNumber() ||
-				   gameToTestOne.getListOfPlayers().get(1).getCurrentPosition().getSpaceNumber() != gameToTestTwo.getListOfPlayers().get(1).getCurrentPosition().getSpaceNumber());
+		assertTrue(gameToTestOne.getListOfPlayers().get(0).getMyMoney() != gameToTestTwo.getListOfPlayers().get(0).getMyMoney() ||
+				   gameToTestOne.getListOfPlayers().get(1).getMyMoney() != gameToTestTwo.getListOfPlayers().get(1).getMyMoney());
 		
 	}
 }
