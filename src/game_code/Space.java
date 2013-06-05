@@ -1,7 +1,6 @@
 package game_code;
 
-public class Space {
-			
+public class Space {			
 	Space nextSpace;
 	
 	public Space() {}

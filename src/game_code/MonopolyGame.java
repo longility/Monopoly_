@@ -4,11 +4,9 @@ import java.util.Vector;
 public class MonopolyGame {
 	
 	Vector<Player> listOfPlayers;
-	int numberOfTurns;
 	Board gameBoard;
 	
-	public MonopolyGame(int numberOfTurns, int numberOfPlayers) {
-		this.numberOfTurns = numberOfTurns;		
+	public MonopolyGame(int numberOfPlayers) {	
 		gameBoard = new Board();
 		createPlayers(numberOfPlayers);			
 	}
@@ -21,7 +19,7 @@ public class MonopolyGame {
 		}
 	}
 	
-	public void runTheGame() {		
+	public void runTheGame(int numberOfTurns) {		
 		for(int i=1; i<=numberOfTurns; i++) {
 			for(int j=0; j<listOfPlayers.size(); j++) {
 				listOfPlayers.get(j).takeATurn();
@@ -30,8 +28,6 @@ public class MonopolyGame {
 	}
 	
 	public Vector<Player> getListOfPlayers() {return listOfPlayers;}
-	
-	public int getNumberOfTurns() {return numberOfTurns;}
 	
 	public Board getGameBoard() {return gameBoard;}
 }

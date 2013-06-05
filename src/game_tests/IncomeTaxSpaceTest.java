@@ -13,7 +13,7 @@ public class IncomeTaxSpaceTest {
 	Vector<Player> listOfPlayers;
 	@Before
 	public void setUp() throws Exception {
-		testGame = new MonopolyGame(5,2);
+		testGame = new MonopolyGame(2);
 		listOfPlayers = testGame.getListOfPlayers();
 	}
 

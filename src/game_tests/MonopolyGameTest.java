@@ -13,13 +13,8 @@ public class MonopolyGameTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		testGame = new MonopolyGame(5,2);
+		testGame = new MonopolyGame(2);
 		listOfPlayers = testGame.getListOfPlayers();
-	}
-	
-	@Test
-	public void testMonopolyGameTurnNumber() {
-		assertEquals(5, testGame.getNumberOfTurns());
 	}
 
 	@Test
@@ -34,11 +29,11 @@ public class MonopolyGameTest {
 	
 	@Test
 	public void testRunTheGame() { 
-		MonopolyGame gameToTestOne = new MonopolyGame(10,2);
-		MonopolyGame gameToTestTwo = new MonopolyGame(10,2);
+		MonopolyGame gameToTestOne = new MonopolyGame(2);
+		MonopolyGame gameToTestTwo = new MonopolyGame(2);
 		
-		gameToTestOne.runTheGame();
-		gameToTestTwo.runTheGame();
+		gameToTestOne.runTheGame(10);
+		gameToTestTwo.runTheGame(10);
 		
 		assertTrue(gameToTestOne.getListOfPlayers().get(0).getMyMoney() != gameToTestTwo.getListOfPlayers().get(0).getMyMoney() ||
 				   gameToTestOne.getListOfPlayers().get(1).getMyMoney() != gameToTestTwo.getListOfPlayers().get(1).getMyMoney());

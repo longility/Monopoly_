@@ -11,11 +11,7 @@ public class Player {
 	public Player(int playerNum, Space currentPosition) {
 		this.currentPosition = currentPosition;
 		myMoney = 1500;
-	}
-
-	public void changeMyMoney(int amountToChange) {myMoney += amountToChange;}
-	
-	public int getMyMoney() {return myMoney;}	
+	}	
 		
 	public void takeATurn() {
 		int sumOfTwoRolls = rollADie() + rollADie();
@@ -28,13 +24,19 @@ public class Player {
 		this.preformLandAction();
 	}
 	
+	public void changeMyMoney(int amountToChange) {myMoney += amountToChange;}
+	
+	public int getMyMoney() {return myMoney;}
+	
+	
 	public void preformLandAction() {currentPosition.interactWithLandAction(this);}
 	
 	public void preformPassAction() {currentPosition.interactWithPassAction(this);}
 	
 	public void moveOnePosition() {currentPosition = currentPosition.getNextSpace();}
 	
-	public int rollADie() {return (randomGenerator.nextInt(6) + 1);}
-	
 	public Space getCurrentPosition() {return currentPosition;}
+	
+	
+	public int rollADie() {return (randomGenerator.nextInt(6) + 1);}
 }

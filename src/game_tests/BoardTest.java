@@ -10,7 +10,7 @@ public class BoardTest {
 
 	@Before
 	public void setUp() throws Exception {
-		testGame = new MonopolyGame(5,2);
+		testGame = new MonopolyGame(2);
 	}
 	
 	@Test
