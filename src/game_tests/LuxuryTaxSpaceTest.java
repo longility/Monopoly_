@@ -38,7 +38,7 @@ public class LuxuryTaxSpaceTest {
 	
 	@Test
 	public void testLuxuryTaxRemoveFromPlayersMoney() { 
-		Space startSpace = new Space();
+		EmptySpace startSpace = new EmptySpace();
 		LuxuryTaxSpace testSpace = new LuxuryTaxSpace();
 		startSpace.setNextSpace(testSpace);
 		Player testPlayer = new Player(1, startSpace);

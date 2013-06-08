@@ -1,15 +1,13 @@
 package game_code;
 
-public class Space {			
-	private Space nextSpace;
+public interface Space {
 	
-	public Space() {}
-	
-	public void setNextSpace(Space nextSpace) {this.nextSpace = nextSpace;}
+	public void setNextSpace(Space nextSpace);
 		
-	public Space getNextSpace() {return nextSpace;}	
+	public Space getNextSpace();
 	 
-	public void interactWithLandAction(Player player) {}
+	public void interactWithLandAction(Player player);
 	
-	public void interactWithPassAction(Player player) {}
+	public void interactWithPassAction(Player player);
+
 }

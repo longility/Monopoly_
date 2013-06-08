@@ -26,7 +26,7 @@ public class Board {
 		else if (spaceNumber == 20) nextSpace = new LuxuryTaxSpace();
 		else if (spaceNumber == 25) nextSpace = new RailroadSpace("B&O");
 		else if (spaceNumber == 35) nextSpace = new RailroadSpace("Shortline");
-		else nextSpace = new Space();
+		else nextSpace = new EmptySpace();
 		
 		return nextSpace;
 	}

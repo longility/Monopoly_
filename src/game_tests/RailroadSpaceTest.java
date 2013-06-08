@@ -37,6 +37,17 @@ public class RailroadSpaceTest {
 	}
 	
 	@Test
+	public void testMonopolyGameBuyingRailroadNotEnoughMoney() {
+		RailroadSpace testSpace = new RailroadSpace("Shortline");
+		Player testPlayer = testGame.getListOfPlayers().get(0);
+		testPlayer.changeMyMoney(-1400);
+		
+		testSpace.interactWithLandAction(testPlayer);
+		
+		assertEquals(null, testSpace.getRailroadOwner());
+	}
+	
+	@Test
 	public void testMonopolyGameBuyingRailroadChargesMoney() {
 		RailroadSpace testSpace = new RailroadSpace("Shortline");
 		Player testPlayer = testGame.getListOfPlayers().get(0);
