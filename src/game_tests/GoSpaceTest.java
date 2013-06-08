@@ -15,7 +15,7 @@ public class GoSpaceTest {
 	
 	@Test
 	public void testMonopolyGamePlayersStartOnGoSpace() { 
-		Space testSpace = testGame.getListOfPlayers().get(0).getCurrentPosition();
+		EmptySpace testSpace = testGame.getListOfPlayers().get(0).getCurrentPosition();
 		
 		assertTrue(testSpace instanceof GoSpace);
 	}

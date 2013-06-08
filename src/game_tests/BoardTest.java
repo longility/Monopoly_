@@ -15,7 +15,7 @@ public class BoardTest {
 	
 	@Test
 	public void testMonopolyGameBoardWrapAround() { 
-		Space testSpace = testGame.getListOfPlayers().get(0).getCurrentPosition(); 
+		EmptySpace testSpace = testGame.getListOfPlayers().get(0).getCurrentPosition(); 
 		for(int i = 0; i<50; i++) {
 			if(i == 39) {
 				assertEquals(testGame.getGameBoard().getInitialSpace(), testSpace.getNextSpace());		
@@ -26,14 +26,14 @@ public class BoardTest {
 	
 	@Test
 	public void testMonopolyGameBoardHasGoSpace() {
-		Space testSpace = testGame.getGameBoard().getInitialSpace();
+		EmptySpace testSpace = testGame.getGameBoard().getInitialSpace();
 		
 		assertTrue(testSpace instanceof game_code.GoSpace);
 	}
 	
 	@Test
 	public void testMonopolyGameBoardHasLuxuryTaxSpace() {
-		Space testSpace = testGame.getGameBoard().getInitialSpace();
+		EmptySpace testSpace = testGame.getGameBoard().getInitialSpace();
 		boolean findLuxuryTaxSpace = false;
 		
 		for(int i=1; i<50; i++) {

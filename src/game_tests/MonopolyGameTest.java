@@ -19,10 +19,10 @@ public class MonopolyGameTest {
 
 	@Test
 	public void testTakeATurn() { 
-		Space beforePosition = listOfPlayers.get(0).getCurrentPosition();
+		EmptySpace beforePosition = listOfPlayers.get(0).getCurrentPosition();
 		
 		listOfPlayers.get(0).takeATurn();
-		Space afterPosition = listOfPlayers.get(0).getCurrentPosition();
+		EmptySpace afterPosition = listOfPlayers.get(0).getCurrentPosition();
 		
 		assertNotSame(afterPosition, beforePosition);
 	}

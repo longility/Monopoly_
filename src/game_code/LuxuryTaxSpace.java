@@ -1,6 +1,6 @@
 package game_code;
 
-public class LuxuryTaxSpace extends Space {
+public class LuxuryTaxSpace extends EmptySpace {
 
 	public LuxuryTaxSpace() {}
 	
