@@ -1,6 +1,6 @@
 package game_code;
 
-public class IncomeTaxSpace extends EmptySpace {
+public class IncomeTaxSpace extends Space {
 	public IncomeTaxSpace() {}
 	
 	@Override

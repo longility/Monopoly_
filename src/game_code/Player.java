@@ -5,10 +5,10 @@ import java.util.Random;
 public class Player {
 	static Random randomGenerator = new Random(System.nanoTime());
 	
-	private EmptySpace currentPosition;
+	private Space currentPosition;
 	private int myMoney;
 	
-	public Player(int playerNum, EmptySpace currentPosition) {
+	public Player(int playerNum, Space currentPosition) {
 		this.currentPosition = currentPosition;
 		myMoney = 1500;
 	}	
@@ -34,7 +34,7 @@ public class Player {
 	
 	public void moveOnePosition() {currentPosition = currentPosition.getNextSpace();}
 	
-	public EmptySpace getCurrentPosition() {return currentPosition;}	
+	public Space getCurrentPosition() {return currentPosition;}	
 	
 	public int rollADie() {return (randomGenerator.nextInt(6) + 1);}
 }

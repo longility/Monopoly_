@@ -1,6 +1,6 @@
 package game_code;
 
-public class GoSpace extends EmptySpace{
+public class GoSpace extends Space{
 	public GoSpace() {}
 	
 	@Override

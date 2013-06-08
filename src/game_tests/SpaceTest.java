@@ -15,10 +15,10 @@ public class SpaceTest {
 	
 	@Test
 	public void testSpaceNextSpaceExists() {
-		EmptySpace testSpace = testGame.getGameBoard().getInitialSpace();
+		Space testSpace = testGame.getGameBoard().getInitialSpace();
 		
 		for(int i=0; i<40; i++) {
-			assertTrue(testSpace instanceof EmptySpace);
+			assertTrue(testSpace instanceof Space);
 			testSpace = testSpace.getNextSpace();
 		}
 	}
