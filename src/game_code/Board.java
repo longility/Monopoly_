@@ -17,7 +17,7 @@ public class Board {
 		currentSpace.setNextSpace(startSpace);
 	}
 	
-	public Space determineNextSpace(int spaceNumber) {
+	private Space determineNextSpace(int spaceNumber) {
 		Space nextSpace;
 		
 		if (spaceNumber == 10) nextSpace = new IncomeTaxSpace();
