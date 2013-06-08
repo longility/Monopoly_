@@ -5,8 +5,8 @@ import java.util.Random;
 public class Player {
 	static Random randomGenerator = new Random(System.nanoTime());
 	
-	Space currentPosition;
-	int myMoney;
+	private Space currentPosition;
+	private int myMoney;
 	
 	public Player(int playerNum, Space currentPosition) {
 		this.currentPosition = currentPosition;
@@ -26,8 +26,7 @@ public class Player {
 	
 	public void changeMyMoney(int amountToChange) {myMoney += amountToChange;}
 	
-	public int getMyMoney() {return myMoney;}
-	
+	public int getMyMoney() {return myMoney;}	
 	
 	public void preformLandAction() {currentPosition.interactWithLandAction(this);}
 	
@@ -35,8 +34,7 @@ public class Player {
 	
 	public void moveOnePosition() {currentPosition = currentPosition.getNextSpace();}
 	
-	public Space getCurrentPosition() {return currentPosition;}
-	
+	public Space getCurrentPosition() {return currentPosition;}	
 	
 	public int rollADie() {return (randomGenerator.nextInt(6) + 1);}
 }

@@ -1,7 +1,7 @@
 package game_code;
 
 public class Board {
-	Space startSpace;
+	private Space startSpace;
 	
 	public Board() {
 		startSpace = new GoSpace();

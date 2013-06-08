@@ -1,10 +1,9 @@
 package game_code;
 import java.util.Vector;
 
-public class MonopolyGame {
-	
-	Vector<Player> listOfPlayers;
-	Board gameBoard;
+public class MonopolyGame {	
+	private Vector<Player> listOfPlayers;
+	private Board gameBoard;
 	
 	public MonopolyGame(int numberOfPlayers) {	
 		gameBoard = new Board();
@@ -21,10 +20,14 @@ public class MonopolyGame {
 	
 	public void runTheGame(int numberOfTurns) {		
 		for(int i=1; i<=numberOfTurns; i++) {
-			for(int j=0; j<listOfPlayers.size(); j++) {
-				listOfPlayers.get(j).takeATurn();
-			}
+			playARound();
 		}	
+	}
+	
+	private void playARound() {
+		for(Player player : listOfPlayers) {
+			player.takeATurn();
+		}
 	}
 	
 	public Vector<Player> getListOfPlayers() {return listOfPlayers;}
