@@ -29,13 +29,16 @@ public class RailroadSpace extends AbstractSpace{
 		else return true;
 	}
 	
+	
 	private void chargePlayerRent(Player player) {
-		player.changeMyMoney(-50);
-		railroadOwner.changeMyMoney(50);
+		int totalRent = 50 * railroadOwner.getRailroadsOwned().size();
+		player.changeMyMoney(-1*totalRent);
+		railroadOwner.changeMyMoney(totalRent);
 	}	
 
 	private void buyThisRailroad(Player player) {
 		player.changeMyMoney(-200);
 		railroadOwner = player;
+		player.addARailRoad(this);
 	}
 }

@@ -68,4 +68,36 @@ public class RailroadSpaceTest {
 		
 		assertEquals(1450, rentingPlayer.getMyMoney());
 	}
+	
+	@Test
+	public void testMonopolyGameOwningMultipleRailroad() {
+		RailroadSpace testRailroadOne = new RailroadSpace("Shortline");
+		RailroadSpace testRailroadTwo = new RailroadSpace("B&O");
+		
+		Player ownerPlayer = testGame.getListOfPlayers().get(0);
+		
+		testRailroadOne.interactWithLandAction(ownerPlayer);
+		testRailroadTwo.interactWithLandAction(ownerPlayer);
+		
+		assertEquals(1100, ownerPlayer.getMyMoney());
+	}
+	
+	@Test
+	public void testMonopolyGamePayingRentRailrdddoad() {
+		RailroadSpace testRailroadOne = new RailroadSpace("Shortline");
+		RailroadSpace testRailroadTwo = new RailroadSpace("B&O");
+		
+		Player ownerPlayer = testGame.getListOfPlayers().get(0);
+		Player rentingPlayer = testGame.getListOfPlayers().get(1);
+		
+		testRailroadOne.interactWithLandAction(ownerPlayer);
+		testRailroadTwo.interactWithLandAction(ownerPlayer);
+
+		testRailroadTwo.interactWithLandAction(rentingPlayer);
+		
+		
+		
+		assertEquals(1400, rentingPlayer.getMyMoney());
+		assertEquals(1200, ownerPlayer.getMyMoney());
+	}
 }

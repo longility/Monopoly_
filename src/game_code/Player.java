@@ -1,12 +1,14 @@
 package game_code;
 
 import java.util.Random;
+import java.util.Vector;
 
 public class Player {
 	static Random randomGenerator = new Random(System.nanoTime());
 	
 	private Space currentPosition;
 	private int myMoney;
+	private Vector<RailroadSpace> railroadsOwned = new Vector<RailroadSpace>();
 	
 	public Player(int playerNum, Space currentPosition) {
 		this.currentPosition = currentPosition;
@@ -23,6 +25,10 @@ public class Player {
 		
 		this.preformLandAction();
 	}
+	
+	public void addARailRoad(RailroadSpace space) {railroadsOwned.add(space);}
+	
+	public Vector<RailroadSpace> getRailroadsOwned() {return railroadsOwned;}
 	
 	public void changeMyMoney(int amountToChange) {myMoney += amountToChange;}
 	
