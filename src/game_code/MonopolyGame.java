@@ -14,7 +14,7 @@ public class MonopolyGame {
 		listOfPlayers = new Vector<Player>(numberOfPlayers);
 		
 		for(int i=0; i<numberOfPlayers; i++) {
-			listOfPlayers.add(i, new Player(i+1,gameBoard.getInitialSpace()));
+			listOfPlayers.add(i, new Player(gameBoard.getInitialSpace()));
 		}
 	}
 	
