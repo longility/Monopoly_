@@ -2,46 +2,34 @@ package game_tests;
 
 import static org.junit.Assert.*;
 import game_code.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
 public class BoardTest {
-	MonopolyGame testGame;
+	Board board;
 
 	@Before
 	public void setUp() throws Exception {
-		testGame = new MonopolyGame(2);
+		board = new Board();
 	}
 	
 	@Test
-	public void testMonopolyGameBoardWrapAround() { 
-		Space testSpace = testGame.getListOfPlayers().get(0).getCurrentPosition(); 
-		for(int i = 0; i<50; i++) {
-			if(i == 39) {
-				assertEquals(testGame.getGameBoard().getInitialSpace(), testSpace.getNextSpace());		
-			}
-			testSpace = testSpace.getNextSpace();
-		}
-	}
-	
-	@Test
-	public void testMonopolyGameBoardHasGoSpace() {
-		Space testSpace = testGame.getGameBoard().getInitialSpace();
+	public void testMonopolyGameBoardWrapAround() {
+		Space initialSpace = board.getInitialSpace();
 		
-		assertTrue(testSpace instanceof game_code.GoSpace);
-	}
-	
-	@Test
-	public void testMonopolyGameBoardHasLuxuryTaxSpace() {
-		Space testSpace = testGame.getGameBoard().getInitialSpace();
-		boolean findLuxuryTaxSpace = false;
+		Space currentSpace = initialSpace;
 		
-		for(int i=1; i<50; i++) {
-			if (testSpace instanceof game_code.LuxuryTaxSpace) findLuxuryTaxSpace = true;
-			testSpace = testSpace.getNextSpace();
+		for(int i=0;i<Board.BOARD_SIZE;i++) {
+			currentSpace = currentSpace.getNextSpace();
+			assertNotNull(currentSpace);
 		}
 		
-		assertTrue(findLuxuryTaxSpace);
+		assertSame(initialSpace, currentSpace);
 	}
-
+	
+	@Test
+	public void testMonopolyGameBoardStartsOnGoSpace() {
+		assertTrue(board.getInitialSpace() instanceof GoSpace);
+	}
 }

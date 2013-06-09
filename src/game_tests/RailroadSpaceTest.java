@@ -15,7 +15,7 @@ public class RailroadSpaceTest {
 	
 	@Test
 	public void testMonopolyGameRailroadsExist() { 
-		Space testSpace = testGame.getGameBoard().getInitialSpace();
+		Space testSpace = testGame.getInitialSpace();
 		
 		for(int i=0; i<40; i++) {
 			if (i == 5) assertTrue(testSpace instanceof game_code.RailroadSpace);

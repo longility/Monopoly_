@@ -32,5 +32,7 @@ public class MonopolyGame {
 	
 	public Vector<Player> getListOfPlayers() {return listOfPlayers;}
 	
-	public Board getGameBoard() {return gameBoard;}
+	public Space getInitialSpace() {
+		return gameBoard.getInitialSpace();
+	}
 }
