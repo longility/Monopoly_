@@ -2,6 +2,7 @@ package game_tests;
 
 import static org.junit.Assert.*;
 import game_code.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,16 +15,17 @@ public class RailroadSpaceTest {
 	}
 	
 	@Test
-	public void testMonopolyGameRailroadsExist() { 
-		Space testSpace = testGame.getInitialSpace();
-		
-		for(int i=0; i<40; i++) {
-			if (i == 5) assertTrue(testSpace instanceof game_code.RailroadSpace);
-			if (i == 15) assertTrue(testSpace instanceof game_code.RailroadSpace);
-			if (i == 25) assertTrue(testSpace instanceof game_code.RailroadSpace);
-			if (i == 35) assertTrue(testSpace instanceof game_code.RailroadSpace);
-			testSpace = testSpace.getNextSpace();
+	public void testMonopolyGameHasFourRailroads() { 
+		MonopolyGame game = new MonopolyGame(2);
+		Space currentSpace = game.getInitialSpace();
+		int numberOfRailroads = 0;
+		for(int i=0; i<Board.BOARD_SIZE; i++) {
+			if (currentSpace instanceof game_code.RailroadSpace)
+				numberOfRailroads++;
+			currentSpace = currentSpace.getNextSpace();
 		}
+		
+		assertEquals(4, numberOfRailroads);
 	}
 	
 	@Test
